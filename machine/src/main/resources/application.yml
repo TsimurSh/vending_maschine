@@ -1,0 +1,37 @@
+api:
+  cors-allowed: http://localhost:3000
+  domain: colaba.online
+spring:
+  application.name: machine
+  cache:
+    type: caffeine
+    caffeine.spec: expireAfterWrite=60s
+  datasource:
+    username: vending
+    password: vending-password
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:vending;MODE=PostgreSQL;INIT=CREATE SCHEMA IF NOT EXISTS vending\;
+#    url: jdbc:h2:file:~/vending;DB_CLOSE_ON_EXIT=FALSE;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;INIT=CREATE SCHEMA IF NOT EXISTS vending\;
+  liquibase.default-schema: vending
+  sql.init:
+    mode: always
+#    platform: h2
+  jpa:
+    defer-datasource-initialization: true
+    show-sql: true
+    properties:
+      hibernate.default_schema: vending
+    open-in-view: false
+    hibernate.ddl-auto: create
+    properties.hibernate:
+      enable_lazy_load_no_trans: true
+
+eureka.client.enabled: false
+springdoc.api-docs.path: /docs
+logging.level:
+    root: INFO
+
+---
+spring.config.activate.on-profile: production
+eureka.client:
+  enabled: true

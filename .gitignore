@@ -1,0 +1,11 @@
+.idea
+.gradle
+build
+*/build
+out
+*/out
+.DS_Store
+
+postgres/postgres-data
+
+
