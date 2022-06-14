@@ -1,0 +1,29 @@
+server:
+  port: 8443
+logging:
+  pattern.dateformat: yyyy-MM-dd HH:mm:ss.SSS,Europe/Berlin
+
+spring:
+  application:
+    name: gateway
+  webflux.static-path-pattern: /static/**
+  output.ansi.enabled: ALWAYS
+  cloud:
+    gateway:
+      httpclient.ssl.useInsecureTrustManager: true
+      routes:
+        - id: AUTHORIZATION_route
+          uri: lb:http://machine
+          predicates:
+            - Path=/machine/**
+          filters:
+            - StripPrefix=1
+eureka.client:
+  enabled: false
+
+---
+spring:
+  config.activate.on-profile: production
+eureka.client:
+  enabled: true
+  serviceUrl.defaultZone: http://eureka-server:8761/eureka
