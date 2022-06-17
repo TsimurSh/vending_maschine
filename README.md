@@ -1,4 +1,4 @@
-# 🍱 Vending machine  [![Backend CI](https://github.com/steklopod/vending/actions/workflows/master.yml/badge.svg)](https://github.com/steklopod/vending/actions/workflows/master.yml)
+# 🍱 Vending machine  
 
 ### 🐲 Tech Stack
 - Kotlin 
