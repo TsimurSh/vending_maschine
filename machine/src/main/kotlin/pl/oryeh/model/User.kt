@@ -3,10 +3,10 @@ package pl.oryeh.model
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonProperty.Access.WRITE_ONLY
-import de.steklopod.config.security.util.TokenUtil.SCOPE_KEY
-import de.steklopod.config.security.util.TokenUtil.steklopod
-import de.steklopod.config.security.util.TokenUtil.tokenExpiration
-import de.steklopod.model.Scope.BUYER
+import pl.oryeh.config.security.util.TokenUtil.SCOPE_KEY
+import pl.oryeh.config.security.util.TokenUtil.steklopod
+import pl.oryeh.config.security.util.TokenUtil.tokenExpiration
+import pl.oryeh.model.Scope.BUYER
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm.HS512
 import org.hibernate.annotations.ColumnDefault

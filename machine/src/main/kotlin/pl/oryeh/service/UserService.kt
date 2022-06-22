@@ -1,10 +1,10 @@
 package pl.oryeh.service
 
-import de.steklopod.exception.ApiException.NotFoundException
-import de.steklopod.exception.ApiException.ValidationException
-import de.steklopod.model.User
-import de.steklopod.model.UserPrincipal
-import de.steklopod.repository.UserRepository
+import pl.oryeh.exception.ApiException.NotFoundException
+import pl.oryeh.exception.ApiException.ValidationException
+import pl.oryeh.model.User
+import pl.oryeh.model.UserPrincipal
+import pl.oryeh.repository.UserRepository
 import org.slf4j.LoggerFactory
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder

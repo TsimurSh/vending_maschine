@@ -1,9 +1,9 @@
 package pl.oryeh.controller
 
-import de.steklopod.config.security.util.setAccessToken
-import de.steklopod.model.TokenInfo
-import de.steklopod.model.UserPrincipal
-import de.steklopod.service.UserService
+import pl.oryeh.config.security.util.setAccessToken
+import pl.oryeh.model.TokenInfo
+import pl.oryeh.model.UserPrincipal
+import pl.oryeh.service.UserService
 import io.swagger.v3.oas.annotations.Operation
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus.CREATED

@@ -1,6 +1,6 @@
 package pl.oryeh.config.security
 
-import de.steklopod.service.UserService
+import pl.oryeh.service.UserService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.authentication.AuthenticationManager
@@ -30,7 +30,8 @@ import javax.servlet.http.HttpServletResponse.SC_FORBIDDEN
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 class SecurityConfig(private val userService: UserService) : WebSecurityConfigurerAdapter() {
     companion object {
-        private val whitelist = arrayOf("/user", "/product", "/actuator/**",
+        private val whitelist = arrayOf(
+            "/user", "/product", "/actuator/**",
             "/docs/**", "/docs.yaml", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html", "/favicon.ico"
         )
     }
@@ -43,19 +44,39 @@ class SecurityConfig(private val userService: UserService) : WebSecurityConfigur
             sessionManagement { sessionCreationPolicy = STATELESS }
             authorizeRequests { authorize(anyRequest, authenticated) }
             addFilterAt<UsernamePasswordAuthenticationFilter>(JwtTokenFilter())
-            addFilterAt<UsernamePasswordAuthenticationFilter>(LoginFilter("/login", userService, authenticationManagerBean()))
+            addFilterAt<UsernamePasswordAuthenticationFilter>(
+                LoginFilter(
+                    "/login",
+                    userService,
+                    authenticationManagerBean()
+                )
+            )
             logout {
                 logoutSuccessHandler = LogoutSuccessHandler()
                 deleteCookies("JSESSIONID")
-                clearAuthentication = true; invalidateHttpSession = true }
+                clearAuthentication = true; invalidateHttpSession = true
+            }
         }
     }
-    override fun configure(webSecurity: WebSecurity) { webSecurity.ignoring().antMatchers(*whitelist) }
-    override fun configure(auth: AuthenticationManagerBuilder) { auth.authenticationProvider(authProvider()) }
-    @Bean override fun authenticationManagerBean(): AuthenticationManager = super.authenticationManagerBean()
-    @Bean fun passwordEncoder(): PasswordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder()
-    @Bean fun authProvider   (): DaoAuthenticationProvider = DaoAuthenticationProvider().apply { setUserDetailsService(userService); setPasswordEncoder(BCryptPasswordEncoder()) }
-    @Bean fun grantedAuthorityDefaults(): GrantedAuthorityDefaults = GrantedAuthorityDefaults("")
+
+    override fun configure(webSecurity: WebSecurity) {
+        webSecurity.ignoring().antMatchers(*whitelist)
+    }
+
+    override fun configure(auth: AuthenticationManagerBuilder) {
+        auth.authenticationProvider(authProvider())
+    }
+
+    @Bean
+    override fun authenticationManagerBean(): AuthenticationManager = super.authenticationManagerBean()
+    @Bean
+    fun passwordEncoder(): PasswordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder()
+    @Bean
+    fun authProvider(): DaoAuthenticationProvider =
+        DaoAuthenticationProvider().apply { setUserDetailsService(userService); setPasswordEncoder(BCryptPasswordEncoder()) }
+
+    @Bean
+    fun grantedAuthorityDefaults(): GrantedAuthorityDefaults = GrantedAuthorityDefaults("")
 
 
     class AuthenticationExceptionHandler : AuthenticationEntryPoint {

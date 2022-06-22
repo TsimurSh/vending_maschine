@@ -1,11 +1,11 @@
 package pl.oryeh.config.security.util
 
-import de.steklopod.config.security.util.TokenUtil.TokenExceptionCode.EXPIRED_TOKEN
-import de.steklopod.config.security.util.TokenUtil.TokenExceptionCode.INVALID_TOKEN
-import de.steklopod.config.security.util.TokenUtil.TokenExceptionCode.NOT_ACCESS_TOKEN
-import de.steklopod.config.security.util.TokenUtil.TokenExceptionCode.TOKEN_CLAIMS_STRING_IS_EMPTY
-import de.steklopod.config.security.util.TokenUtil.TokenExceptionCode.UNSUPPORTED_TOKEN
-import de.steklopod.exception.ApiException.TokenValidationException
+import pl.oryeh.config.security.util.TokenUtil.TokenExceptionCode.EXPIRED_TOKEN
+import pl.oryeh.config.security.util.TokenUtil.TokenExceptionCode.INVALID_TOKEN
+import pl.oryeh.config.security.util.TokenUtil.TokenExceptionCode.NOT_ACCESS_TOKEN
+import pl.oryeh.config.security.util.TokenUtil.TokenExceptionCode.TOKEN_CLAIMS_STRING_IS_EMPTY
+import pl.oryeh.config.security.util.TokenUtil.TokenExceptionCode.UNSUPPORTED_TOKEN
+import pl.oryeh.exception.ApiException.TokenValidationException
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.ExpiredJwtException
 import io.jsonwebtoken.Jws

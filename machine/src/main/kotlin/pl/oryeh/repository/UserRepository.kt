@@ -1,6 +1,6 @@
 package pl.oryeh.repository
 
-import de.steklopod.model.User
+import pl.oryeh.model.User
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Modifying
 import org.springframework.data.jpa.repository.Query

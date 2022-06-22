@@ -1,11 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="RUN" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-    <option name="ACTIVE_PROFILES" />
-    <option name="ALTERNATIVE_JRE_PATH" value="corretto-17" />
-    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <module name="vending.machine.main" />
-    <option name="SHORTEN_COMMAND_LINE" value="ARGS_FILE" />
-    <option name="SPRING_BOOT_MAIN_CLASS" value="de.steklopod.VendingMachineApplication" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="de.steklopod.*" />
@@ -22,6 +17,10 @@
         <ENTRY IS_ENABLED="true" PARSER="runconfig" />
       </ENTRIES>
     </extension>
+    <option name="SPRING_BOOT_MAIN_CLASS" value="pl.oryeh.VendingMachineApplication" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <option name="ALTERNATIVE_JRE_PATH" value="corretto-17" />
+    <option name="SHORTEN_COMMAND_LINE" value="ARGS_FILE" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

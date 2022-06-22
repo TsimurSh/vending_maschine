@@ -1,9 +1,9 @@
 package pl.oryeh.config.security.util
 
-import de.steklopod.config.security.util.TokenUtil.ACCESS_TOKEN_KEY
-import de.steklopod.config.security.util.TokenUtil.TOKEN_PREFIX
-import de.steklopod.exception.ApiException.TokenValidationException
-import de.steklopod.model.TokenInfo
+import pl.oryeh.config.security.util.TokenUtil.ACCESS_TOKEN_KEY
+import pl.oryeh.config.security.util.TokenUtil.TOKEN_PREFIX
+import pl.oryeh.exception.ApiException.TokenValidationException
+import pl.oryeh.model.TokenInfo
 import org.springframework.http.HttpHeaders.ACCESS_CONTROL_EXPOSE_HEADERS
 import org.springframework.http.HttpHeaders.AUTHORIZATION
 import org.springframework.http.HttpHeaders.SET_COOKIE
