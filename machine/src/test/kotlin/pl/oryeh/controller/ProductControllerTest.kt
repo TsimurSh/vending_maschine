@@ -1,8 +1,8 @@
 package pl.oryeh.controller
 
-import de.steklopod.TestHelper.SELLER_TOKEN
-import de.steklopod.TestHelper.patchWithTokenInHeader
-import de.steklopod.TestHelper.postWithTokenInHeader
+import pl.oryeh.TestHelper.SELLER_TOKEN
+import pl.oryeh.TestHelper.patchWithTokenInHeader
+import pl.oryeh.TestHelper.postWithTokenInHeader
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
