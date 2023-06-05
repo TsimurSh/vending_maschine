@@ -4,7 +4,7 @@ plugins {
     kotlin("plugin.jpa") version kotlinVersion apply false
     kotlin("plugin.spring") version kotlinVersion apply false
     id("org.springframework.boot") version "2.6.4" apply false
-    id("io.spring.dependency-management") version "1.0.11.RELEASE"
+    id("io.spring.dependency-management") version "1.1.0"
 }
 
 allprojects { repositories { mavenCentral(); mavenLocal(); google(); } }
